@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-serif: 'Playfair Display', serif;
+
+    /* Kassiri Pulse Theme - Cream & Dark Green with Orange/Red accents */
+    --background: 40 33% 98%; /* Creamy off-white #faf8f5 */
+    --foreground: 152 40% 10%; /* Very dark green/black #0f241a */
+
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 152 40% 10%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 152 40% 10%;
+
+    --primary: 152 74% 17%; /* Dark Green #0B4A2D */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 20% 90%; /* Slightly darker cream */
+    --secondary-foreground: 152 74% 17%;
+
+    --muted: 40 15% 92%;
+    --muted-foreground: 152 15% 45%;
+
+    --accent: 15 85% 50%; /* Vibrant Orange/Red #e65100 / #d32f2f */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 40 15% 85%;
+    --input: 40 15% 85%;
+    --ring: 152 74% 17%;
+
+    --radius: 0.25rem; /* Sharp, professional media look */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    @apply tracking-tight text-primary;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .hover-elevate {
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10;
+  }
+  
+  .glass-header {
+    @apply bg-background/95 backdrop-blur-md border-b border-border/50 supports-[backdrop-filter]:bg-background/80;
+  }
+}
+
+/* Custom Prose styling for Markdown Content */
+.prose {
+  @apply max-w-none text-foreground;
+}
+.prose p {
+  @apply leading-relaxed mb-6 text-lg;
+}
+.prose h2 {
+  @apply text-3xl font-serif font-bold text-primary mt-10 mb-4;
+}
+.prose h3 {
+  @apply text-2xl font-serif font-bold text-primary mt-8 mb-4;
+}
+.prose a {
+  @apply text-accent hover:text-accent/80 underline decoration-accent/30 underline-offset-4 transition-colors;
+}
+.prose blockquote {
+  @apply border-l-4 border-accent pl-6 italic text-xl font-serif my-8 text-muted-foreground bg-accent/5 p-6 rounded-r-lg;
+}
+.prose ul {
+  @apply list-disc list-outside pl-6 mb-6 space-y-2 text-lg;
+}
+.prose img {
+  @apply rounded-lg shadow-md w-full my-8;
+}
